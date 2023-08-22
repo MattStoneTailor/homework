@@ -1,15 +1,12 @@
 [
   {
     "label": "Home",
-    "path": "/"
-  },
-  {
-    "label": "Instructions",
-    "path": "/instructions"
+    "path": "/",
+    "component": "HomeContent"
   },
   {
     "label": "ApiTest",
-    "path": "/picsum",
+    "path": "/apitest",
     "queryData": {
       "url": "https://picsum.photos/v2/list",
       "limit": 12

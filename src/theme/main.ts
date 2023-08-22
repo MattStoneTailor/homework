@@ -7,6 +7,7 @@ const mainTheme = {
     navHighlightedText: "#fff",
     text: "#696969",
     imagePlaceholderBg: "#e7e7e7",
+    scrollbar: "#2d3a36",
   },
   fonts: {
     family: "Poppins,Arial,sans-serif;",
@@ -20,8 +21,8 @@ const mainTheme = {
 };
 
 const breakpoints = {
-  md: "400px",
-  lg: "750px",
+  md: "550px",
+  lg: "800px",
 }
 
 export const devices = {

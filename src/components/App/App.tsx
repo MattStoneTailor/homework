@@ -5,9 +5,16 @@ import {
 import { Container, Main } from "./App.style";
 import Helmet from "./Helmet";
 import TabsData from "./../../data/Tabs.json";
-import DefaultContent from "../DefaultContent/DefaultContent";
 import ContentLoader from "../ContentLoader/ContentLoader";
 import Header from "../Header/Header";
+import { staticContents } from "./App.config";
+import HomeContent from "../HomeContent/HomeContent";
+
+const getStaticContent = (componentName: string) => {
+  const ContentComponent = staticContents[componentName];
+  // @ts-ignore
+  return ContentComponent ?? <ContentComponent />;
+};
 
 const App = () => (
   <Container>
@@ -16,19 +23,21 @@ const App = () => (
       <Header />
       <Main>
         <Routes>
-          <Route index element={<DefaultContent />} />
+          <Route index element={<HomeContent />} />
           {TabsData.map((tabData, index) => (
             <Route
               key={index}
               path={tabData.path}
               element={
-                (tabData.queryData ?
+                (
+                  tabData.queryData ?
                   <ContentLoader tabData={tabData} /> :
-                  <DefaultContent />)
+                    getStaticContent(tabData.component)
+                )
               }
             />
           ))}
-          <Route path="*" element={<DefaultContent />} />
+          <Route path="*" element={<HomeContent />} />
         </Routes>
       </Main>
     </HashRouter>

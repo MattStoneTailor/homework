@@ -7,6 +7,7 @@ export interface TabInterface {
   label: string;
   path: string;
   queryData?: QueryDataType;
+  component?: string;
 }
 
 export type TabIndexType = number;

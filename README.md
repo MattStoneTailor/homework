@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Mate Szabo - Technical assignment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live demo: http://mateszabo.epizy.com/homework/
+
+## Technical details
+Node version: v16.20.0\
+npm version: 8.19.4\
+\
+Installation:
+### `npm i`
 
 ## Available Scripts
-
-In the project directory, you can run:
+Run it in development mode:
 
 ### `npm start`
 
-Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `build` folder.
+ct, check out the [React documentation](https://reactjs.org/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Notes
+### Api fetcher
+* The images are shown responsively.
+If there are not enough space, the columns will be reduced
+* Every image is loaded separately and the app is showing a spinner icon until the given image is not fully downloaded
+* The infinity loader removes every already loaded image from memory that is "far away" from the visible viewport
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Alternatives
+* I've written most of the components and utils myself because I wanted to show my skills, but in a production-environment
+I would rather use an already-written UI kit (AntD, Bootstrap, Material....) that is widely used and
+reliable. The reason is that they are maintained by dedicated teams
+  and/or the community, therefore they are always more up-to-date.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* As I previously mentioned, because of the same reason I would
+  use a well-written infinity-loader component to handle the fetched data
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Using a state-handler like Redux or MobX to store data and share them
+  between the components. Right now it wasn't necessary because the fetched
+  data should be available only in the ApiTest page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Improvements
+* Loading the images in the appropriate sizes are essential!
+Right now I just fetching every image in 600px, but that's not a
+good solution because if the user viewing the app via mobile, a
+smaller image would be enough and the performance would be better.\
+I think the best solution would be: The server sends the src for both the large and small image in one api call and the FE shows the appropriate one based on the viewport/layout structure.
+* The sourcecode is not consistent (types, naming conventions) and not fully accessible
+* No unit and/or end2end tests. (I would use Jest and Cypress)
+* I've added some Todo comment because I didn't have enough time to investigate the source of the issue
