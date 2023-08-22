@@ -1,0 +1,18 @@
+[
+  {
+    "label": "Home",
+    "path": "/"
+  },
+  {
+    "label": "Instructions",
+    "path": "/instructions"
+  },
+  {
+    "label": "ApiTest",
+    "path": "/picsum",
+    "queryData": {
+      "url": "https://picsum.photos/v2/list",
+      "limit": 12
+    }
+  }
+]
