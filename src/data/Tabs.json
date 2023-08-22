@@ -5,11 +5,19 @@
     "component": "HomeContent"
   },
   {
-    "label": "ApiTest",
-    "path": "/apitest",
+    "label": "Images",
+    "path": "/images",
     "queryData": {
       "url": "https://picsum.photos/v2/list",
       "limit": 12
+    }
+  },
+  {
+    "label": "Texts",
+    "path": "/texts",
+    "queryData": {
+      "url": "https://baconipsum.com/api/?type=meat-and-filler",
+      "limit": 100
     }
   }
 ]

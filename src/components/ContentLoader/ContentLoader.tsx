@@ -6,8 +6,8 @@ import { queryConfig } from "./ContentLoader.config";
 import Spinner from "../Spinner/Spinner";
 import { QueryResponseObjectType, QueryResponseType } from "../../types/QueryResponseTypes";
 import Scroller from "../Scroller/Scroller";
-import Image from "../Image/Image";
 import { fetchContent } from "./ContentLoader.api";
+import queryResponseMapper from "../../utils/queryResponseMapper";
 
 type ContentLoaderInterface = {
   tabData?: TabInterface,
@@ -74,11 +74,7 @@ const ContentLoader = ({ tabData }: ContentLoaderInterface) => {
       <Container>
         {isSuccess && (
           content.map((contentElement: QueryResponseObjectType, index: number) => (
-            <Image
-              key={index}
-              src={contentElement.download_url}
-              alt={contentElement.author}
-            />
+            queryResponseMapper({ contentElement, key: index })
           )))}
         <Spinner />
       </Container>
