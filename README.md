@@ -16,6 +16,9 @@ Run it in development mode:
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ### `npm run build`
+_(in case you would like to serve it):_
+### `npm install -g serve`
+### `serve -s build`
 
 Builds the app for production to the `build` folder.
 
