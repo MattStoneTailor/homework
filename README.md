@@ -24,7 +24,9 @@ Builds the app for production to the `build` folder.
 
 ## Notes
 ### Api fetcher
-* The images are shown responsively.
+* **data/Tabs.json** contains the definitions for the api calls and the app 
+automatically renders the response of them
+* The images/articles are shown responsively.
 If there are not enough space, the columns will be reduced
 * Every image is loaded separately and the app is showing a spinner icon until the given image is not fully downloaded
 * The infinity loader removes every already loaded image from memory that is "far away" from the visible viewport
@@ -52,3 +54,4 @@ I think the best solution would be: The server sends the src for both the large 
 * The sourcecode is not consistent (types, naming conventions) and not fully accessible
 * No unit and/or end2end tests. (I would use Jest and Cypress)
 * I've added some Todo comment because I didn't have enough time to investigate the source of the issue
+* Error handling

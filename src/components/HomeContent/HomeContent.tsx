@@ -13,6 +13,10 @@ const HomeContent = () => (
       </ul>
     <h2>Key factors for the API fetcher</h2>
     <ul>
+      <li>
+        <strong>data/Tabs.json</strong> contains the definitions for the api calls and the app
+        automatically renders the response of them
+      </li>
       <li>The images are shown responsively. If there are not enough space, the columns will be reduced</li>
       <li>Every image is loaded separately and the app is showing a spinner icon until the given image is not fully downloaded</li>
       <li>The infinity loader removes every already loaded image from memory that is "far away" from the visible viewport</li>
@@ -57,6 +61,9 @@ const HomeContent = () => (
       <li>
         I've added some Todo comment because I didn't have enough time
         to investigate the source of the issue
+      </li>
+      <li>
+        Error handling
       </li>
     </ul>
   </HomeContentWrapper>

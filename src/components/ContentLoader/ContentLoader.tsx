@@ -40,8 +40,8 @@ const ContentLoader = ({ tabData }: ContentLoaderInterface) => {
     }
   }, [isLoading, isFetching]);
 
+  // Constructor. Set pager to 0 and scroll to the top
   useEffect(() => {
-    // Constructor. Set pager to 0 and scroll to the top
     setPager(0);
     setContent([]);
     window.scrollTo(0, 0);
@@ -52,8 +52,8 @@ const ContentLoader = ({ tabData }: ContentLoaderInterface) => {
     refetch();
   }, [pagerRef.current]);
 
+  // Update content with the new response
   useEffect(() => {
-    // Update content with the new response
     if (data) {
       if (pagerRef.current === 0) {
         setContent((data?.results || data));
