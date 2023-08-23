@@ -24,9 +24,9 @@ const App = () => (
       <Main>
         <Routes>
           <Route index element={<HomeContent />} />
-          {TabsData.map((tabData, index) => (
+          {TabsData.map((tabData) => (
             <Route
-              key={index}
+              key={tabData.path}
               path={tabData.path}
               element={
                 (

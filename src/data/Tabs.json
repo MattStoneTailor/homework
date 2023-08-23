@@ -9,15 +9,24 @@
     "path": "/images",
     "queryData": {
       "url": "https://picsum.photos/v2/list",
-      "limit": 12
+      "limit": 12,
+      "limitKey": "limit"
     }
   },
   {
     "label": "Texts",
     "path": "/texts",
     "queryData": {
-      "url": "https://baconipsum.com/api/?type=meat-and-filler",
-      "limit": 100
+      "url": "https://baconipsum.com/api/?type=meat-and-filler"
+    }
+  },
+  {
+    "label": "Users",
+    "path": "/users",
+    "queryData": {
+      "url": "https://randomuser.me/api",
+      "limit": 12,
+      "limitKey": "results"
     }
   }
 ]

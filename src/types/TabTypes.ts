@@ -1,7 +1,8 @@
 export type ApiUrlType = string;
 export type QueryDataType = {
   url: ApiUrlType;
-  limit: number;
+  limit?: number;
+  limitKey?: string;
 };
 export interface TabInterface {
   label: string;

@@ -1,3 +1,3 @@
 export type QueryResponseObjectType = any;
 
-export type QueryResponseType = QueryResponseObjectType[];
+export type QueryResponseType = any;

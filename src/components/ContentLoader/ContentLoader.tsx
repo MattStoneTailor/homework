@@ -4,7 +4,7 @@ import { Container } from "./ContentLoader.style";
 import { TabInterface } from "../../types/TabTypes";
 import { queryConfig } from "./ContentLoader.config";
 import Spinner from "../Spinner/Spinner";
-import { QueryResponseObjectType, QueryResponseType } from "../../types/QueryResponseTypes";
+import { QueryResponseType } from "../../types/QueryResponseTypes";
 import Scroller from "../Scroller/Scroller";
 import { fetchContent } from "./ContentLoader.api";
 import queryResponseMapper from "../../utils/queryResponseMapper";
@@ -24,7 +24,7 @@ const ContentLoader = ({ tabData }: ContentLoaderInterface) => {
     data, refetch, isLoading,
     isFetching, isSuccess
   } = useQuery(
-    ['content', pagerRef.current],
+    ['content', pagerRef.current, tabData],
     () => (
       tabData?.queryData &&
       fetchContent({
@@ -43,24 +43,25 @@ const ContentLoader = ({ tabData }: ContentLoaderInterface) => {
   useEffect(() => {
     // Constructor. Set pager to 0 and scroll to the top
     setPager(0);
+    setContent([]);
     window.scrollTo(0, 0);
-  }, []);
+  }, [tabData]);
 
   // Refetch if the pager changed
   useEffect(() => {
     refetch();
-  }, [pagerRef, refetch]);
+  }, [pagerRef.current]);
 
   useEffect(() => {
     // Update content with the new response
     if (data) {
       if (pagerRef.current === 0) {
-        setContent(data);
+        setContent((data?.results || data));
       }
       else {
         setContent([
           ...content,
-          ...data,
+          ...(data?.results || data),
         ]);
       }
     }
@@ -72,10 +73,7 @@ const ContentLoader = ({ tabData }: ContentLoaderInterface) => {
       onBottomReached={onBottomReached}
     >
       <Container>
-        {isSuccess && (
-          content.map((contentElement: QueryResponseObjectType, index: number) => (
-            queryResponseMapper({ contentElement, key: index })
-          )))}
+        {isSuccess && queryResponseMapper(content)}
         <Spinner />
       </Container>
     </Scroller>

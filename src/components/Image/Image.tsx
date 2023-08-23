@@ -7,8 +7,9 @@ import ScrollElementHider from "../Scroller/Scroller.hider";
 interface ImageInterface {
   src: string;
   alt: string;
+  isFromPicsum?: boolean;
 }
-const Image = ({ src, alt }: ImageInterface) => {
+const Image = ({ src, alt, isFromPicsum }: ImageInterface) => {
   const scrollElementRef = useRef();
   const [isSourceLoaded, setSourceLoaded] = useState<boolean>(false);
   const [smallImageSrc, setSmallImageSrc] = useState<string>("");
@@ -16,7 +17,7 @@ const Image = ({ src, alt }: ImageInterface) => {
 
   useEffect(() => {
     if (src) {
-      setSmallImageSrc(imagePathUrlReplacer(src));
+      setSmallImageSrc(isFromPicsum ? imagePathUrlReplacer(src) : src);
     }
   }, [src]);
 
